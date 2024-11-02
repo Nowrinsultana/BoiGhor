@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "440824611088",
+    "firebase_url": "https://boighor-16589-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "boighor-16589",
+    "storage_bucket": "boighor-16589.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440824611088:android:d0d536eee4dc78ad942595",
+        "android_client_info": {
+          "package_name": "com.example.boighor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "440824611088-p2rj1k04346rr09cu6vta1vhil5aq28o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArt63zQsTKqtyZQe_L_hy_f54NlZya3F4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "440824611088-p2rj1k04346rr09cu6vta1vhil5aq28o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

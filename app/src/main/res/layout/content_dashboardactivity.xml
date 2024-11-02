@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center_horizontal"
+    android:background="#FAFAFA">
+
+    <!-- Dashboard Heading (Seller/User Dashboard) -->
+    <TextView
+        android:id="@+id/dashboardHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dashboard"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#312828"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center_horizontal" />
+
+    <!-- Welcome message -->
+    <TextView
+        android:id="@+id/welcomeMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome"
+        android:textColor="#312828"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal" />
+
+    <!-- User Name -->
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name: "
+        android:textSize="16sp"
+        android:textColor="#312828"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="start" />
+
+    <!-- User Phone -->
+    <TextView
+        android:id="@+id/userPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phone: "
+        android:textSize="16sp"
+        android:textColor="#312828"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="start" />
+
+    <!-- User Address -->
+    <TextView
+        android:id="@+id/userAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address: "
+        android:textColor="#312828"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="start" />
+
+    <!-- Logout Button -->
+    <Button
+        android:id="@+id/buttonLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#FF0000"
+        android:textColor="#FFFFFF" />
+</LinearLayout>
