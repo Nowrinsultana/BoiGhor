@@ -7,33 +7,50 @@
     android:background="#FFFFFF"
     android:padding="16dp">
 
-    <!-- Sign-in Header-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="Sign in to Boi-Ghor"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="#000000" />
 
     <!-- Google Sign-In Button -->
-    <Button
+    <LinearLayout
         android:id="@+id/googleSignInButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="#479B9A9A"
+        android:orientation="horizontal"
+        android:gravity="center"
         android:padding="12dp"
-        android:text="Continue with Google"
-        android:textStyle="bold" />
+        android:background="@drawable/edittext_background"
+        android:layout_marginBottom="16dp"
+        android:elevation="2dp">
 
-    <!-- Divider with 'or' text -->
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/google_icon"
+            android:contentDescription="Google Icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:text="Continue with Google"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Divider with 'or' -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
 
         <View
             android:layout_width="0dp"
@@ -56,81 +73,47 @@
             android:background="#B0B0B0" />
     </LinearLayout>
 
-    <!-- Username Field -->
+    <!-- Email Input -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
         android:text="Email"
         android:textStyle="bold"
-        android:layout_marginBottom="4dp"
-        android:textColor="@color/black"/>
+        android:textColor="#000000" />
 
     <EditText
         android:id="@+id/loginEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:background="#E3BDEC"
+        android:background="@drawable/edittext_background"
         android:hint="Enter Your Email"
-        android:drawableLeft="@drawable/baseline_person_24"
+        android:textColorHint="#7B717171"
         android:inputType="textEmailAddress"
-        android:padding="12dp" />
+        android:padding="12dp"
+        android:textColor="#000000" />
 
-    <!-- Password Field -->
+    <!-- Password Input -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
         android:text="Password"
         android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textColor="#000000" />
 
     <EditText
         android:id="@+id/loginPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:background="#E3BDEC"
-        android:hint="Enter Your Password"
-        android:drawableLeft="@drawable/baseline_password_24"
-        android:inputType="textPassword"
-        android:padding="12dp" />
-
-    <!-- Remember Me and Forgot Password -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:orientation="horizontal">
-
-        <CheckBox
-            android:id="@+id/rememberMeCheckbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Remember me?"
-            android:textSize="14sp"
-            android:textColor="@android:color/black"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginLeft="100dp"
-            android:text="Forget Password?"
-            android:textColor="@android:color/holo_blue_dark"
-            android:textSize="14sp" />
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/joinSellerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="#E3BDEC"
-        android:text="Sign in as Seller"
-        android:textColor="@android:color/black"
-        android:textStyle="bold" />
-
+        android:background="@drawable/edittext_background"
+        android:hint="Enter Your Password"
+        android:textColorHint="#7B717171"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:textColor="#000000" />
 
     <!-- Sign-In Button -->
     <Button
@@ -140,7 +123,18 @@
         android:layout_marginBottom="16dp"
         android:backgroundTint="#E3BDEC"
         android:text="Sign in"
-        android:textColor="@android:color/black"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <!-- Join as Seller Button -->
+    <Button
+        android:id="@+id/joinSellerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#E3BDEC"
+        android:text="Join as Seller"
+        android:textColor="#000000"
         android:textStyle="bold" />
 
     <!-- Sign-Up Link -->
@@ -153,9 +147,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Already have an account?"
+            android:text="Don't have an account?"
             android:textSize="14sp"
-            android:textColor="@color/black"/>
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/signupLink"
@@ -164,12 +158,10 @@
             android:layout_marginStart="4dp"
             android:clickable="true"
             android:focusable="true"
-            android:text="Signup"
-            android:gravity="center"
+            android:text="Sign up"
             android:textColor="@android:color/holo_blue_dark"
             android:textSize="14sp"
-            android:minHeight="48dp"
-            android:minWidth="48dp"/>
+            android:textStyle="bold" />
     </LinearLayout>
 
 </LinearLayout>

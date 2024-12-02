@@ -31,14 +31,9 @@ public class signupactivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signupactivity);
 
-        // Initialize Firebase Auth and Firestore
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
-        // Retrieve user type from Intent (from loginactivity)
-        userType = getIntent().getStringExtra("user-type");
-
-        // UI elements
         emailField = findViewById(R.id.signupEmail);
         passwordField = findViewById(R.id.signupPassword);
         nameField = findViewById(R.id.signupName);
@@ -46,7 +41,6 @@ public class signupactivity extends AppCompatActivity {
         contactField = findViewById(R.id.signupContact);
         signupButton = findViewById(R.id.signupButton);
 
-        // Set the Sign-Up button click listener
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,36 +63,33 @@ public class signupactivity extends AppCompatActivity {
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
-                        // Account creation successful
+
                         FirebaseUser user = mAuth.getCurrentUser();
-                        // Log the user details
 
-
-//                         Save the user details in Firestore
-                        saveUserDetails(user.getUid(), name, address, contact, userType);
+                        saveUserDetails(user.getUid(), name, address, email, contact, userType);
 
                         Toast.makeText(signupactivity.this, "Account created successfully!", Toast.LENGTH_SHORT).show();
 
-                        // Redirect to login or homepage activity
+
                         startActivity(new Intent(signupactivity.this, dashboardactivity.class));
                         finish();
                     } else {
-                        // If sign up fails, display an error message
+
                         Toast.makeText(signupactivity.this, "Sign-up failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
 
-    private void saveUserDetails(String userId, String name, String address, String contact, String userType) {
-        // Create a map to store user details in Firestore
+    private void saveUserDetails(String userId, String name, String address, String email, String contact, String userType) {
 
         Map<String, Object> user = new HashMap<>();
         user.put("name", name);
         user.put("address", address);
+        user.put("email", email);
         user.put("contact", contact);
         user.put("userType", userType);
 
-        // Save the data in Firestore under the "Users" collection
+
         DocumentReference userRef = db.collection("Users").document(userId);
         userRef.set(user)//data create hoise
                 .addOnSuccessListener(aVoid -> {

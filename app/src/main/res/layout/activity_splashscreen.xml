@@ -13,10 +13,4 @@
         android:layout_height="wrap_content"
         android:id="@+id/logo"
         android:src="@drawable/logo"/>
-
-
-
-
-
-
 </LinearLayout>

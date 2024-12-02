@@ -3,7 +3,6 @@ package com.example.boighor;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,23 +14,21 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class dashboardactivity extends AppCompatActivity {
 
+
     private FirebaseAuth mAuth;
     private FirebaseFirestore firestore;
-    private TextView dashboardHeading, welcomeMessage, userName, userPhone, userAddress, userEmail;
+    private TextView dashboardHeading, welcomeMessage, userName, userPhone, userAddress, userEmail, userType;
     private Button buttonLogout;
-    private String userType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        // Initialize Firebase Auth and Firestore
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         firestore = FirebaseFirestore.getInstance();
 
-        // Initialize UI elements
         dashboardHeading = findViewById(R.id.dashboardHeading);
         welcomeMessage = findViewById(R.id.welcomeMessage);
         userName = findViewById(R.id.userName);
@@ -40,7 +37,7 @@ public class dashboardactivity extends AppCompatActivity {
 
         buttonLogout = findViewById(R.id.buttonLogout);
 
-        // Fetch user data from Firestore
+
         if (currentUser != null) {
             firestore.collection("Users").document(currentUser.getUid()).get()
                     .addOnCompleteListener(task -> {
@@ -50,15 +47,24 @@ public class dashboardactivity extends AppCompatActivity {
                                 String name = document.getString("name");
                                 String phone = document.getString("contact");
                                 String address = document.getString("address");
-                                userType = document.getString("user-type");
+                                String userType = document.getString("userType");
 
-                                // Set dashboard heading based on user type
+
+                                if (userType != null && userType.equals("admin"))  {
+
+                                    Intent adminIntent = new Intent(dashboardactivity.this, Admin_dashboard.class);
+                                    startActivity(adminIntent);
+                                    finish();
+                                }
+
+
                                 if (userType != null && userType.equals("seller")) {
                                     dashboardHeading.setText("Seller Dashboard");
                                 } else {
                                     dashboardHeading.setText("Dashboard");
                                 }
-                                // Set user data with default values if null
+
+
                                 welcomeMessage.setText("Welcome " + (name != null ? name : "User"));
                                 userName.setText("Name: " + (name != null ? name : "N/A"));
                                 userPhone.setText("Phone: " + (phone != null ? phone : "N/A"));
@@ -73,11 +79,11 @@ public class dashboardactivity extends AppCompatActivity {
                     });
         }
 
-        // Set the logout button functionality
+
         buttonLogout.setOnClickListener(v -> {
             mAuth.signOut();  // Sign out the user
             Toast.makeText(dashboardactivity.this, "Logged out successfully", Toast.LENGTH_SHORT).show();
-            // Redirect to login activity
+
             Intent intent = new Intent(dashboardactivity.this, loginactivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);

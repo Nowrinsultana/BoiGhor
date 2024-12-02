@@ -21,10 +21,8 @@ public class splashscreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                // Start MainActivity after the splash screen delay
                 Intent intent = new Intent(splashscreen.this, loginactivity.class);
                 startActivity(intent);
-                // Close this activity so the user cannot return to the splash screen
                 finish();
             }
         }, SPLASH_TIME_OUT);
