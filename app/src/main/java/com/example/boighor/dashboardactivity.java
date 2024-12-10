@@ -50,12 +50,19 @@ public class dashboardactivity extends AppCompatActivity {
                                 String userType = document.getString("userType");
 
 
-                                if (userType != null && userType.equals("admin"))  {
 
-                                    Intent adminIntent = new Intent(dashboardactivity.this, Admin_dashboard.class);
-                                    startActivity(adminIntent);
+
+                                if (userType != null && userType.equals("admin")) {
+                                    dashboardHeading.setText("Admin Dashboard");
+                                    Intent intent = new Intent(dashboardactivity.this, Admin.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    startActivity(intent);
                                     finish();
                                 }
+
+
+
+
 
 
                                 if (userType != null && userType.equals("seller")) {

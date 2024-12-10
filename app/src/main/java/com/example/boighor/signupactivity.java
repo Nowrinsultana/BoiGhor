@@ -41,6 +41,11 @@ public class signupactivity extends AppCompatActivity {
         contactField = findViewById(R.id.signupContact);
         signupButton = findViewById(R.id.signupButton);
 
+        Intent intent = getIntent();
+        userType = intent.getStringExtra("user-type");
+        if (userType == null) {
+            userType = "user";}
+
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

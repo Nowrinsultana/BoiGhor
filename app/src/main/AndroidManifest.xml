@@ -15,6 +15,15 @@
         android:theme="@style/Theme.BoiGhor"
         tools:targetApi="31">
         <activity
+            android:name=".Admin"
+            android:exported="false" />
+        <activity
+            android:name=".customer.customer_dashboard"
+            android:exported="false" />
+        <activity
+            android:name=".customer"
+            android:exported="false" />
+        <activity
             android:name=".SellerActivity"
             android:exported="false" />
         <activity
